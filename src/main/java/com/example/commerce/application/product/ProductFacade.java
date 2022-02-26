@@ -13,6 +13,15 @@ public class ProductFacade {
     private final ProductService productService;
 
     public ProductInfo registerProduct(ProductCommand command) {
-        return productService.registerProduct(command);
+        var productInfo = productService.registerProduct(command);
+        // 트렌젝션과 관계없이 동작할 로직 추가
+        // 예) 유저에게 알람
+
+        return productInfo;
     }
+
+    public ProductInfo getProduct(String token) {
+        return productService.getProductInfo(token);
+    }
+
 }
